@@ -19,6 +19,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SafeArea } from "./src/components/utility/safe-area.component";
 //Icons
 import Ionicons from "@expo/vector-icons/Ionicons";
+//Services
+import { restaurantsRequest } from "./src/services/Restaurants/restaurants.service";
 
 const TAB_ICON = {
   Restaurants: "md-restaurant",
@@ -45,6 +47,7 @@ function SettingsScreen() {
 const createScreenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
   return {
+    headerShown: false,
     tabBarActiveTintColor: "tomato",
     tabBarInactiveTintColor: "gray",
     tabBarIcon: ({ size, color }) => (
