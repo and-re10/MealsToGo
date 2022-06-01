@@ -8,7 +8,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 //Safe Area
 import { SafeArea } from "../../../components/utility/safe-area.component";
 //Restaurant Context
-import { RestaurantContext } from "../../../services/Restaurants/restaurants.context";
+import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 
 const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
@@ -18,6 +18,14 @@ const RestaurantList = styled(FlatList).attrs({
     padding: 16,
   },
 })``;
+const LoadingContainer = styled.View`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+`;
+const Loading = styled(ActivityIndicator)`
+  margin-left: -25px;
+`;
 
 export const RestaurantsScreen = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -25,16 +33,13 @@ export const RestaurantsScreen = () => {
   const { restaurants, isLoading, error } = useContext(RestaurantContext);
   //   console.log(error);
 
-  if (isLoading) {
-    return (
-      <SafeArea style={{justifyContent: "center"}}>
-        <ActivityIndicator animating={true} color={Colors.red800} size="large"/>
-      </SafeArea>
-    );
-  }
-
   return (
     <SafeArea>
+      {isLoading && (
+        <LoadingContainer>
+          <Loading animating={true} color={Colors.blue800} size={50} />
+        </LoadingContainer>
+      )}
       <SearchContainer>
         <Searchbar
           placeholder="Search"

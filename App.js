@@ -20,7 +20,7 @@ import { SafeArea } from "./src/components/utility/safe-area.component";
 //Icons
 import Ionicons from "@expo/vector-icons/Ionicons";
 // RestaurantContextprovider
-import { RestaurantContextProvider } from "./src/services/Restaurants/restaurants.context";
+import { RestaurantContextProvider } from "./src/services/restaurants/restaurants.context";
 
 const TAB_ICON = {
   Restaurants: "md-restaurant",
