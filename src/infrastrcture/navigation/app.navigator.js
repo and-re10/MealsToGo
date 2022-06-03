@@ -9,20 +9,14 @@ import { SafeArea } from "../../components/utility/safe-area.component"; // ./sr
 import Ionicons from "@expo/vector-icons/Ionicons";
 //RestaurantNavigator
 import { RestaurantNavigator } from "./restaurants.navigator";
+// Map Screen
+import { MapScreen } from "../../features/map/screens/map.screen";
 
 const TAB_ICON = {
   Restaurants: "md-restaurant",
   Map: "md-map",
   Settings: "md-settings",
 };
-
-function MapScreen() {
-  return (
-    <SafeArea>
-      <Text>Map!</Text>
-    </SafeArea>
-  );
-}
 
 function SettingsScreen() {
   return (
