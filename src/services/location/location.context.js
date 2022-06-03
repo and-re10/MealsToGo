@@ -13,12 +13,15 @@ export const LocationContextProvider = ({ children }) => {
     setIsLoading(true);
     setKeyword(serachKeyword);
     // console.log(serachKeyword);
-    if (!serachKeyword.length) {
+  };
+
+  useEffect(() => {
+    if (!keyword.length) {
       // don't do anything
       setIsLoading(false);
       return;
     }
-    locationRequest(serachKeyword.toLowerCase())
+    locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then((result) => {
         setIsLoading(false);
@@ -30,7 +33,7 @@ export const LocationContextProvider = ({ children }) => {
         setError(err);
         // console.log(err);
       });
-  };
+  }, [keyword]);
 
   return (
     <LocationContext.Provider
